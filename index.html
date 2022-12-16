@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+body{
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.gridClass > div {
+    background-color: slategray;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+.gridClass{
+    display: grid;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: 150px repeat(5,100px);
+    gap: 2px;
+}
+.gridClass div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    
+}
+.head{
+    justify-content: end !important;
+  grid-column: 1 / span 4;
+}
+#b19{
+    grid-column: 3/ span 2;
+    background-color: slategray;
+}
+.gridClass > div:hover{
+    cursor:pointer;
+    background-color: rgb(97, 106, 114);
+}
+#b19:hover{
+    cursor:pointer;
+    background-color: rgb(97, 106, 114);
+}
+</style>
+<body>
+    <div class="gridClass">
+        <div class="head"></div>
+        <div class="b" onclick="clearFun(this)">C</div>
+        <div class="b" onclick="addFun(this)">-</div>
+        <div class="b" onclick="addFun(this)"></div>
+        <div class="b" onclick="addFun(this)">/</div>
+        <div class="b" onclick="addFun(this)">7</div>
+        <div class="b" onclick="addFun(this)">8</div>
+        <div class="b" onclick="addFun(this)">9</div>
+        <div class="b" onclick="addFun(this)">*</div>
+        <div class="b" onclick="addFun(this)">4</div>
+        <div class="b" onclick="addFun(this)">5</div>
+        <div class="b" onclick="addFun(this)">6</div>
+        <div class="b" onclick="addFun(this)">-</div>
+        <div class="b" onclick="addFun(this)">1</div>
+        <div class="b" onclick="addFun(this)">2</div>
+        <div class="b" onclick="addFun(this)">3</div>
+        <div class="b" onclick="addFun(this)">+</div>
+        <div class="b" onclick="addFun(this)">0</div>
+        <div class="b" onclick="addFun(this)">.</div>
+        <div id="b19" class="b" onclick="equateFun()">=</div>
+    </div>
+</body>
+<script>
+     let head = document.getElementsByClassName('head')[0]
+    function addFun(t){
+        head.innerHTML += t.innerHTML        
+    }
+    function equateFun(){
+       head.innerHTML = eval(head.innerHTML)
+    }
+    function clearFun(t){
+        head.innerHTML = ""
+    }
+</script>
+</html>
